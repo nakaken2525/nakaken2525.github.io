@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なかけん | Portfolio</title>
+<style>
+  /* ===== 基本設定（色を変えたいときはここ） ===== */
+  :root {
+    --bg: #0d1117;          /* 背景色 */
+    --bg-card: #161b22;     /* カードの背景 */
+    --border: #30363d;      /* 枠線 */
+    --text: #e6edf3;        /* 本文の文字色 */
+    --text-dim: #8b949e;    /* 薄い文字色 */
+    --accent: #58e6d9;      /* アクセントカラー（シアン） */
+    --accent2: #7c8cf8;     /* サブアクセント（青紫） */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+    line-height: 1.7;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== ナビゲーション ===== */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(13, 17, 23, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  nav .logo { font-family: Consolas, monospace; color: var(--accent); font-weight: bold; }
+  nav a { color: var(--text-dim); text-decoration: none; margin-left: 20px; font-size: 14px; }
+  nav a:hover { color: var(--accent); }
+
+  /* ===== ヒーロー（最初に目に入る部分） ===== */
+  .hero { padding: 100px 0 80px; }
+  .hero .tag { font-family: Consolas, monospace; color: var(--accent); font-size: 14px; }
+  .hero h1 { font-size: 48px; margin: 8px 0; }
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p { color: var(--text-dim); max-width: 560px; }
+
+  /* ===== セクション共通 ===== */
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 24px; margin-bottom: 24px; }
+  h2::before { content: "# "; color: var(--accent); font-family: Consolas, monospace; }
+
+  /* ===== カード ===== */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { font-size: 16px; margin-bottom: 8px; }
+  .card p { font-size: 14px; color: var(--text-dim); }
+  .badge {
+    display: inline-block; font-size: 12px; font-family: Consolas, monospace;
+    color: var(--accent); border: 1px solid var(--accent);
+    border-radius: 999px; padding: 1px 10px; margin-bottom: 10px;
+  }
+  .badge.gold { color: #e3b341; border-color: #e3b341; }
+  .badge.wip { color: var(--accent2); border-color: var(--accent2); }
+
+  /* ===== スキル ===== */
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 6px 14px; font-size: 14px;
+    font-family: Consolas, monospace;
+  }
+
+  /* ===== 連絡先 ===== */
+  .links a {
+    display: inline-block; margin-right: 16px; color: var(--accent);
+    text-decoration: none; font-family: Consolas, monospace;
+  }
+  .links a:hover { text-decoration: underline; }
+
+  footer { padding: 40px 0; text-align: center; color: var(--text-dim); font-size: 13px; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 34px; }
+    nav a { margin-left: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">&lt;nakaken /&gt;</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ヒーロー ===== -->
+<header class="hero">
+  <div class="container">
+    <div class="tag">// AI &amp; Machine Learning</div>
+    <h1>なかけん<span>.dev</span></h1>
+    <p>
+      AI・機械学習を学ぶ大学1年生。データ分析コンペやAIエージェント開発に挑戦しながら、
+      作ったもの・学んだことをここに積み上げていきます。
+    </p>
+  </div>
+</header>
+
+<!-- ===== 自己紹介 ===== -->
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+    <p>
+      大学1年生。プログラミングとAIに興味を持ち、実践の場としてデータ分析コンペティションに参加しています。
+      LLMのファインチューニングからWebアプリ開発まで、手を動かして学ぶスタイルで幅を広げ中です。
+    </p>
+  </div>
+</section>
+
+<!-- ===== コンペ実績 =====
+  ★新しいコンペに参加したら、下の <div class="card"> ... </div> をコピーして追加するだけ！
+-->
+<section id="competitions">
+  <div class="container">
+    <h2>Competitions</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="badge gold">最終 7位</div>
+        <h3>bitgrit AI免疫システムチャレンジ</h3>
+        <p>AIが生成したテキストの検出コンペ。QLoRAによる7Bモデルのファインチューニングでスコア0.9881を達成し、最終7位入賞。</p>
+      </div>
+      <div class="card">
+        <div class="badge wip">参戦中</div>
+        <h3>ポケモンTCG AI Battle Challenge</h3>
+        <p>Kaggleの対戦ボット型コンペ。カードゲームAIの行動評価ロジックと探索アルゴリズムを開発中。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== プロジェクト =====
+  ★新しい制作物ができたら、ここにカードを追加！
+-->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="badge wip">MVP開発中</div>
+        <h3>AIファッション提案プラットフォーム</h3>
+        <p>複数ECサイト（楽天・Yahoo!ショッピング）を横断検索し、AIがコーディネートを提案するWebサービスの構想・開発。</p>
+      </div>
+      <div class="card">
+        <div class="badge wip">制作中</div>
+        <h3>企業ホームページ制作</h3>
+        <p>建設業（足場工事・建築・運搬）の企業サイトを企画から担当。事業紹介ページのデザイン・実装。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== スキル ===== -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Python</div>
+      <div class="skill">機械学習 / LLM</div>
+      <div class="skill">QLoRA Fine-tuning</div>
+      <div class="skill">HTML / CSS</div>
+      <div class="skill">Git / GitHub</div>
+      <div class="skill">Claude Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 連絡先 ===== -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="links">
+      <!-- ★GitHubユーザー名が決まったらURLを書き換える -->
+      <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+      <a href="mailto:naka.ken4443@gmail.com">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 nakaken — Built with HTML &amp; CSS, hosted on GitHub Pages
+</footer>
+
+</body>
+</html>
